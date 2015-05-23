@@ -2,7 +2,6 @@ class DataFactory:
     '''Class to get the data through a DB pipeline and make it available for analysis'''
     def __init__(self,data_file_name):
         self.data_file_name = data_file_name
-        
         return
     def __del__(self):
         return
