@@ -18,31 +18,31 @@ elements from custom list
 '''
 class RandomDataFactory:
     def __init__(self,descriptor_file,output_data_file_name):
-        is_valid,number_of_records,descriptor_list = scanDescriptorFile(descriptor_file)
-        if is_valid:
-            self.descriptor_list = descriptor_list
+        self.descriptor_list = []
+        if scanDescriptorFile(descriptor_file):
             self.data_file_name = output_data_file_name
             self.number_of_records = number_of_records
         else:
             print 'Invalid Description, Object not properly created'
             exit(0)
         return
-    def scanDescriptorFile(self,descriptor_file):
+    def scanDescriptorFile(descriptor_file):
         try:
             with open(descriptor_file, 'r') as f:
                 arg = f.readline().strip()
-                number_of_records = int(arg)
+                self.descriptor_list.append(arg)
                 arg = f.readline().strip()
-                descriptor_list = []
                 while arg != '':
-                    addToDescriptionList(arg,descriptor_list)
+                    switchAndAddToDescriptionList(arg)
                     arg = f.readline().strip()
-
         except Exception as e:
             print e
             print 'Invalid Description, Object not properly created'
-            exit(0)
-    def addToDescriptionList(self,arg,descriptor_list):
-        arg_lst = arg.split(',')
-        if arg_lst[0] == '0':
-            
+            return False
+        return True
+    def switchAndAddtoDescriptionList(arg):
+        arg_lst = arg.split(',');
+            if arg_lst[0] == '0':
+                self.descriptor_list.append(str([arg_lst[0]),str(arg_lst[1]]))
+            elif arg_lst[0] == '1':
+                self.descriptor_lst.append(str
