@@ -27,16 +27,22 @@ class RandomDataFactory:
             print 'Invalid Description, Object not properly created'
             exit(0)
         return
-    def scanDescriptorFile(descriptor_file):
+    def scanDescriptorFile(self,descriptor_file):
         try:
             with open(descriptor_file, 'r') as f:
                 arg = f.readline().strip()
                 number_of_records = int(arg)
                 arg = f.readline().strip()
+                descriptor_list = []
                 while arg != '':
-
+                    addToDescriptionList(arg,descriptor_list)
+                    arg = f.readline().strip()
 
         except Exception as e:
             print e
+            print 'Invalid Description, Object not properly created'
             exit(0)
-
+    def addToDescriptionList(self,arg,descriptor_list):
+        arg_lst = arg.split(',')
+        if arg_lst[0] == '0':
+            
