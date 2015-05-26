@@ -4,7 +4,7 @@ import sys
 import random
 import string
 '''Global declarations'''
-NUM_OF_RECORDS = 1000000
+NUM_OF_RECORDS = 10000
 FILE_NAME = 'records_file.csv'
 PROJECT_LIST = ['ASD','ECI','VIPR','IIG','ISILON']
 FIELD_LIST = ['CLOUD','DATABASE','TESTING','QA']
@@ -95,4 +95,4 @@ def main():
     print num_of_lines
     if num_of_lines < NUM_OF_RECORDS:
         sys.exit(0)
-#main()
+main()

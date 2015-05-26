@@ -43,7 +43,7 @@ def createMatrix(f_name, data_arr, test_data_arr, num_of_records):
         i_test_data = 0
         #print 'the split count is', splt_count
         for i in range(rsize):
-            print 'on the record number ',i
+            #print 'on the record number ',i
             record = f.readline().strip().split(',')
             if meetsSplitCriteria(splt_count):
                 for j in range(csize):
